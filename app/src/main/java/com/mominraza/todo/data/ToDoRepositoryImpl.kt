@@ -13,7 +13,7 @@ class ToDoRepositoryImpl(
         dao.deleteToDo(toDo)
     }
 
-    override suspend fun getToDoById(id: Int): ToDo {
+    override suspend fun getToDoById(id: String): ToDo {
         return dao.getToDoById(id)
     }
 

@@ -39,6 +39,7 @@ fun ToDoListScreen(
     }
 
     Scaffold(
+        topBar = { SmallTopAppBar(title = {Text("ToDo")}) },
         snackbarHost = {
             SnackbarHost(hostState = snackbarHostState)
         },

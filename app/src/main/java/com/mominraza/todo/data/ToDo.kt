@@ -10,5 +10,5 @@ data class ToDo(
     val id: UUID = UUID.randomUUID(),
     val title: String,
     val description: String?,
-    val isDone: Boolean,
+    val isDone: Boolean = false,
 )

@@ -12,7 +12,7 @@ interface ToDoDao {
     suspend fun deleteToDo(toDo: ToDo)
 
     @Query("select * from todo where id = :id")
-    suspend fun getToDoById(id: Int): ToDo
+    suspend fun getToDoById(id: String): ToDo
 
     @Query("select * from todo")
     fun getToDos(): Flow<List<ToDo>>

@@ -34,8 +34,7 @@ class MainActivity : ComponentActivity() {
                         Routes.ADD_EDIT_TODO + "?todoId={todoId}",
                         listOf(
                             navArgument(name = "todoId") {
-                                type = NavType.IntType
-                                defaultValue = -1
+                                type = NavType.StringType
                             }
                         )
                     ) {
