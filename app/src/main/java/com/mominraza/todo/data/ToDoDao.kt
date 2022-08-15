@@ -14,6 +14,6 @@ interface ToDoDao {
     @Query("select * from todo where id = :id")
     suspend fun getToDoById(id: String): ToDo
 
-    @Query("select * from todo")
+    @Query("select * from todo order by id")
     fun getToDos(): Flow<List<ToDo>>
 }

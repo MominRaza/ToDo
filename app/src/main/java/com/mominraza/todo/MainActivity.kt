@@ -8,9 +8,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.mominraza.todo.ui.add_edit_todo.AddEditToDoScreen
+import com.mominraza.todo.ui.screen.add_edit_todo.AddEditToDoScreen
 import com.mominraza.todo.ui.theme.ToDoTheme
-import com.mominraza.todo.ui.todo_list.ToDoListScreen
+import com.mominraza.todo.ui.screen.todo_list.ToDoListScreen
 import com.mominraza.todo.util.Routes
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,6 +35,7 @@ class MainActivity : ComponentActivity() {
                         listOf(
                             navArgument(name = "todoId") {
                                 type = NavType.StringType
+                                defaultValue = ""
                             }
                         )
                     ) {

@@ -1,4 +1,4 @@
-package com.mominraza.todo.ui.todo_list
+package com.mominraza.todo.ui.screen.todo_list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -6,11 +6,13 @@ import com.mominraza.todo.data.ToDo
 import com.mominraza.todo.data.ToDoRepository
 import com.mominraza.todo.util.Routes
 import com.mominraza.todo.util.UiEvent
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class ToDoListViewModel @Inject constructor(
     private val repository: ToDoRepository
 ): ViewModel() {

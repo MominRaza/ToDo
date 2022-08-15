@@ -1,5 +1,6 @@
-package com.mominraza.todo.ui.todo_list
+package com.mominraza.todo.ui.screen.todo_list
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -48,9 +49,12 @@ fun ToDoListScreen(
                 Icon(Icons.Default.Add,"Add")
             }
         }
-    ) {
-        LazyColumn() {
-            items(todos) {
+    ) { paddingValues ->
+        LazyColumn(
+            modifier = Modifier.padding(paddingValues),
+            contentPadding = PaddingValues(4.dp,4.dp,4.dp,86.dp)
+        ) {
+            items(todos, { it.id }) {
                 ToDoItem(
                     toDo = it,
                     onEvent = viewModel::onEvent,

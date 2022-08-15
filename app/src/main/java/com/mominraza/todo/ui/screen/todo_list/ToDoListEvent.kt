@@ -1,4 +1,4 @@
-package com.mominraza.todo.ui.todo_list
+package com.mominraza.todo.ui.screen.todo_list
 
 import com.mominraza.todo.data.ToDo
 

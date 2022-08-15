@@ -1,4 +1,4 @@
-package com.mominraza.todo.ui.todo_list
+package com.mominraza.todo.ui.screen.todo_list
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -49,7 +49,7 @@ fun ToDoItem(
             Checkbox(
                 toDo.isDone,
                 {
-                    onEvent(ToDoListEvent.OnDoneChange(toDo,it))
+                    onEvent(ToDoListEvent.OnDoneChange(toDo, it))
                 }
             )
         }

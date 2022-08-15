@@ -1,4 +1,4 @@
-package com.mominraza.todo.ui.add_edit_todo
+package com.mominraza.todo.ui.screen.add_edit_todo
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -9,12 +9,13 @@ import androidx.lifecycle.viewModelScope
 import com.mominraza.todo.data.ToDo
 import com.mominraza.todo.data.ToDoRepository
 import com.mominraza.todo.util.UiEvent
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
-import java.util.*
 import javax.inject.Inject
 
+@HiltViewModel
 class AddEditToDoViewModel @Inject constructor(
     private val repository: ToDoRepository,
     savedStateHandle: SavedStateHandle
@@ -49,15 +50,13 @@ class AddEditToDoViewModel @Inject constructor(
             is AddEditToDoEvent.OnTitleChange -> title = event.title
             is AddEditToDoEvent.OnDescriptionChange -> description = event.description
             AddEditToDoEvent.OnSaveButtonClick -> {
-                if (title.isBlank()) {
-                    sendUiEvent(
-                        UiEvent.ShowSnackbar(
-                            "The title can't be empty"
-                        )
-                    )
-                    return
-                }
                 viewModelScope.launch {
+                    if (title.isBlank()) {
+                        sendUiEvent(
+                            UiEvent.ShowSnackbar("The title can't be empty")
+                        )
+                        return@launch
+                    }
                     repository.addToDo(
                         (toDo?.copy(
                             title = title,
